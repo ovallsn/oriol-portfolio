@@ -28,7 +28,7 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 - Constrain the main content to roughly 1160px with generous side gutters.
 - Lead with Oriol’s name and role, a CV selector and an original animated trefoil mesh. Draw the mesh in Canvas with no external runtime. Use a still frame without JavaScript and start with motion paused when the visitor prefers reduced motion.
 - Let the centered navigation float over the opening scene. Collapse it behind a native disclosure control on narrow screens.
-- Place the brief biography and Oriol’s portrait directly below the introduction. Present the method for handling an incident in a disclosure beneath the biography.
+- Place the brief biography and Oriol’s portrait directly below the introduction. The black portrait card turns from its branded back to its front as the visitor scrolls into the section. The front is the static default for reduced motion and without JavaScript. Present the method for handling an incident in a disclosure beneath the biography.
 - Show the live Valls Solutions homepage in a browser frame and use real LetsStudy screens in the Android preview, including interview preparation. Make each preview a link to the corresponding public project.
 - Use a fine diagonal drafting grid over warm paper in the opening scene. Echo it at the end around a direct email action and secondary LinkedIn and GitHub links.
 
@@ -45,4 +45,4 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 - Adapted the reference’s split introduction, diagonal background and floating navigation to Oriol’s warm canvas, forest palette, original copy, CV links and business evidence. The animated mesh uses a trefoil form and an independently authored renderer.
 - No source code, branding, copy, artwork, or assets were reused from those sites; a license covering them was not established.
 - The Valls Solutions images are captures of its English and Spanish homepages. They include a still from Vlada Karpovich’s [Pexels video 7552423](https://www.pexels.com/video/businesspeople-doing-paperwork-7552423/), reused under the [Pexels license](https://www.pexels.com/license/).
-- The LetsStudy images come from its [published screenshots](https://github.com/ovallsn/letsstudy/tree/main/docs/screenshots). Oriol provided the portrait used in the biography.
+- The LetsStudy images come from its [published screenshots](https://github.com/ovallsn/letsstudy/tree/main/docs/screenshots). Oriol provided the original portrait. The portfolio displays a background-edited version of that photo.

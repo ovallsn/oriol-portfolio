@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../assets/profile/oriol-valls.webp';
+import portrait from '../assets/profile/oriol-valls-dark.webp';
 import type { Locale, PortfolioCopy } from '../data/portfolio';
 
 interface Props {
@@ -11,6 +11,7 @@ interface Props {
 
 const { locale, about, approach } = Astro.props;
 const isEnglish = locale === 'en';
+const mark = `${import.meta.env.BASE_URL}favicon.svg`;
 ---
 
 <section class="content-section profile-section" id="about" aria-labelledby="about-title">
@@ -24,10 +25,21 @@ const isEnglish = locale === 'en';
         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12m-5-5 5 5 5-5" /></svg>
       </a>
     </div>
-    <figure class="profile-portrait">
-      <Image src={portrait} alt="Oriol Valls" widths={[160, 240, 288]} sizes="(max-width: 740px) 240px, 288px" />
-      <figcaption>Oriol Valls</figcaption>
-    </figure>
+    <div class="profile-portrait-stage" data-portrait-scene>
+      <div class="profile-portrait-card">
+        <figure class="profile-portrait">
+          <Image class="profile-portrait-photo" src={portrait} alt={isEnglish ? 'Portrait of Oriol Valls' : 'Retrato de Oriol Valls'} widths={[320, 480, 720]} sizes="(max-width: 390px) calc(100vw - 2rem), 360px" />
+          <figcaption class="profile-portrait-caption">
+            <strong>Oriol Valls</strong>
+            <span>{isEnglish ? 'Technical & application support' : 'Soporte técnico y de aplicaciones'}</span>
+            <span class="profile-portrait-availability">{isEnglish ? 'Open to remote work' : 'Disponible para trabajo remoto'}</span>
+          </figcaption>
+        </figure>
+        <div class="profile-portrait-back" aria-hidden="true">
+          <img src={mark} width="76" height="76" alt="" loading="lazy" />
+        </div>
+      </div>
+    </div>
   </div>
 
   <details class="work-case profile-approach" id="approach">
@@ -42,3 +54,7 @@ const isEnglish = locale === 'en';
     </ol>
   </details>
 </section>
+
+<script>
+  import '../scripts/portrait-scroll';
+</script>
