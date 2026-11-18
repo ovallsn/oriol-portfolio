@@ -18,7 +18,7 @@ const { locale, copy, entries } = Astro.props;
 
   <ol class="experience-list">
     {entries.map((entry) => (
-      <li class="experience-item" data-kind={entry.kind ?? 'role'}>
+      <li class="experience-item" data-kind={entry.kind ?? 'role'} data-scroll-reveal>
         <div class="experience-meta">
           <span>{entry.dates[locale]}</span>
           {entry.note && <span class="experience-note">{entry.note[locale]}</span>}

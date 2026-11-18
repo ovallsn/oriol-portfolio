@@ -19,15 +19,15 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 
 ## Typography
 
-- Self-host Manrope under its SIL Open Font License 1.1; use weights 400–800.
-- Use Manrope for display and reading text; use weight, scale, and spacing—not decorative monospace—to convey technical confidence.
+- Self-host DM Sans under its SIL Open Font License 1.1 in weights 400–800. Use the same family for headings, prose and controls.
+- Use a plain text signature in system monospace in the header. Keep the monogram on the browser tab and the reverse of the portrait card.
 - Keep body copy around 65–75 characters per line on wide screens and display type below 6rem.
 
 ## Composition
 
 - Constrain the main content to roughly 1160px with generous side gutters.
 - Lead with Oriol’s name and role, a CV selector and an original animated trefoil mesh. Draw the mesh in Canvas with no external runtime. Use a still frame without JavaScript and start with motion paused when the visitor prefers reduced motion.
-- Let the centered navigation float over the opening scene. Collapse it behind a native disclosure control on narrow screens.
+- Let the centered navigation float over the opening scene. Move its selection indicator as the visible section changes and collapse it behind a native disclosure control on narrow screens.
 - Place the brief biography and Oriol’s portrait directly below the introduction. The black portrait card turns from its branded back to its front as the visitor scrolls into the section. The front is the static default for reduced motion and without JavaScript. Present the method for handling an incident in a disclosure beneath the biography.
 - Show the live Valls Solutions homepage in a browser frame and use real LetsStudy screens in the Android preview, including interview preparation. Make each preview a link to the corresponding public project.
 - Use a fine diagonal drafting grid over warm paper in the opening scene. Echo it at the end around a direct email action and secondary LinkedIn and GitHub links.
@@ -37,6 +37,7 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 - English/Spanish switch routes between `/` and `/es/`; theme preference is optional and keyboard operable.
 - Skill filters are native buttons, expose the active state, and update a concise usage example.
 - Use short CSS transitions, visible focus rings, WCAG AA text contrast, and a reduced-motion fallback.
+- Use one entrance for the opening copy and brief, one-time reveals for project previews, experience entries and the contact panel. They remain visible with JavaScript unavailable or reduced motion enabled.
 - Use the interactive mesh as the hero visual instead of a video. Provide a pause control and suspend drawing while the scene is offscreen.
 
 ## Reference adaptation

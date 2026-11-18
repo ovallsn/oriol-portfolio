@@ -27,6 +27,6 @@ The portfolio is hosted at [ovallsn.github.io/oriol-portfolio](https://ovallsn.g
 
 ## Fonts and third-party notices
 
-Manrope is self-hosted from Google Fonts and distributed under the SIL Open Font License 1.1. The license is included at `src/assets/fonts/OFL-Manrope.txt`.
+DM Sans is self-hosted from Google Fonts and distributed under the SIL Open Font License 1.1. The license is included at `src/assets/fonts/OFL-DM-Sans.txt`.
 
 The social preview has a PNG export for broad platform support and an editable SVG source at `public/social-card.svg`.

@@ -138,8 +138,7 @@ const navLinks = [
     <header class="site-header" id="top">
       <div class="header-inner">
         <a class="brand" href={locale === 'en' ? englishPath : spanishPath} aria-label={locale === 'en' ? 'Oriol Valls, home' : 'Oriol Valls, inicio'}>
-          <img src={`${base}favicon.svg`} width="26" height="26" alt="" />
-          <span class="brand-name">Oriol <strong>Valls</strong></span>
+          <span>Oriol Valls<span class="brand-cursor" aria-hidden="true">_</span></span>
         </a>
 
         <details class="site-nav" data-site-nav open>
@@ -150,6 +149,7 @@ const navLinks = [
             <span>{locale === 'en' ? 'Menu' : 'Menú'}</span>
           </summary>
           <nav aria-label={copy.nav}>
+            <span class="nav-indicator" aria-hidden="true"></span>
             <ul class="nav-list">
               {navLinks.map((link) => (
                 <li><a href={link.href}>{link.label}</a></li>

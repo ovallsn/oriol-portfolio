@@ -31,7 +31,7 @@ const labels = {
   <h2 id="work-title">{copy.title}</h2>
   <div class="work-gallery">
     {featured.map((project) => (
-      <article class:list={['work-feature', `work-feature--${project.kind}`]} aria-labelledby={`project-${project.id}-title`}>
+      <article class:list={['work-feature', `work-feature--${project.kind}`]} aria-labelledby={`project-${project.id}-title`} data-scroll-reveal>
         <a class="work-preview-link" href={project.destinationUrl} aria-labelledby={`preview-${project.id}-label project-${project.id}-title`}>
           <div class:list={['work-preview', `work-preview--${project.kind}`]}>
             {project.kind === 'business' ? (
