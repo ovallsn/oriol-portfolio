@@ -67,7 +67,7 @@ function initScene(scene: HTMLElement) {
   let size = 0;
   let ink = '';
   let accent = '';
-  let angle = 0.36;
+  let angle = 0.15;
   let tilt = 0;
   let targetTilting = 0;
   let targetTurning = 0;
@@ -77,21 +77,21 @@ function initScene(scene: HTMLElement) {
 
   function draw() {
     if (!ctx || size === 0) return;
-    const sx = Math.sin(0.67 + tilt);
-    const cx = Math.cos(0.67 + tilt);
+    const sx = Math.sin(0.42 + tilt);
+    const cx = Math.cos(0.42 + tilt);
     const sy = Math.sin(angle + turn);
     const cy = Math.cos(angle + turn);
     const roll = 0.3;
     const cr = Math.cos(roll);
     const sr = Math.sin(roll);
-    const scale = size * 0.194;
+    const scale = size * 0.19;
 
     for (let i = 0; i < points.length; i++) {
       const [x, y, z] = points[i];
-      const a = x * cy + z * sy;
-      const b = z * cy - x * sy;
-      const c = y * cx - b * sx;
-      const d = y * sx + b * cx;
+      const a = x * cy - y * sy;
+      const b = x * sy + y * cy;
+      const c = b * cx - z * sx;
+      const d = b * sx + z * cx;
       const perspective = 7 / (7 - d);
       const point = projected[i];
       point[0] = size / 2 + (a * cr - c * sr) * scale * perspective;
@@ -115,7 +115,7 @@ function initScene(scene: HTMLElement) {
         ctx.moveTo(projected[from][0], projected[from][1]);
         ctx.lineTo(projected[to][0], projected[to][1]);
       }
-      ctx.globalAlpha = 0.12 + 0.67 * (i / (layers - 1)) ** 1.6;
+      ctx.globalAlpha = 0.17 + 0.73 * (i / (layers - 1)) ** 1.6;
       ctx.stroke();
     }
 
@@ -145,7 +145,7 @@ function initScene(scene: HTMLElement) {
 
   function animate(time: number) {
     if (time - lastDraw >= 32) {
-      angle += Math.min(time - lastDraw, 50) * 0.00032;
+      angle += Math.min(time - lastDraw, 50) * 0.00016;
       tilt += (targetTilting - tilt) * 0.085;
       turn += (targetTurning - turn) * 0.085;
       lastDraw = time;
@@ -180,8 +180,8 @@ function initScene(scene: HTMLElement) {
   canvas.addEventListener('pointermove', (event) => {
     if (paused || event.pointerType !== 'mouse') return;
     const bounds = canvas.getBoundingClientRect();
-    targetTilting = 0.55 * (event.clientY - bounds.top - bounds.height / 2) / bounds.height;
-    targetTurning = 0.8 * (event.clientX - bounds.left - bounds.width / 2) / bounds.width;
+    targetTilting = 0.3 * (event.clientY - bounds.top - bounds.height / 2) / bounds.height;
+    targetTurning = 0.45 * (event.clientX - bounds.left - bounds.width / 2) / bounds.width;
   });
   canvas.addEventListener('pointerleave', () => {
     targetTilting = 0;

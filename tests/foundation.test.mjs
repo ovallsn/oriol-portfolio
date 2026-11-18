@@ -39,6 +39,7 @@ test('the shared shell exposes keyboard-friendly theme and locale controls', asy
 
   assert.match(english, /aria-label="Switch color theme"/);
   assert.match(english, /href="\/oriol-portfolio\/es\/"/);
+  assert.match(english, /class="language-options"[\s\S]*?hreflang="en" aria-current="page"[\s\S]*?>EN<\/a>[\s\S]*?hreflang="es"[\s\S]*?>ES<\/a>/);
   assert.match(english, /<main\b/);
   assert.match(english, /Skip to content/);
 });

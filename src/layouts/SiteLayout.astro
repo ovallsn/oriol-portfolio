@@ -137,7 +137,7 @@ const navLinks = [
     <a class="skip-link" href="#main">{copy.skip}</a>
     <header class="site-header" id="top">
       <div class="header-inner">
-        <a class="brand" href={locale === 'en' ? englishPath : spanishPath} aria-label={locale === 'en' ? 'Oriol Valls, home' : 'Oriol Valls, inicio'}>
+        <a class="brand" href={englishPath} aria-label={locale === 'en' ? 'Oriol Valls, home' : 'Oriol Valls, inicio en inglés'}>
           <span>Oriol Valls<span class="brand-cursor" aria-hidden="true">_</span></span>
         </a>
 
@@ -174,13 +174,10 @@ const navLinks = [
               <path d="M20.2 15.4A8.6 8.6 0 0 1 8.6 3.8 8.7 8.7 0 1 0 20.2 15.4Z" />
             </svg>
           </button>
-          <a
-            class="language-switch"
-            href={locale === 'en' ? spanishPath : englishPath}
-            lang={locale === 'en' ? 'es' : 'en'}
-            hreflang={locale === 'en' ? 'es' : 'en'}
-            aria-label={copy.language}
-          >{locale === 'en' ? 'ES' : 'EN'}</a>
+          <nav class="language-options" aria-label={locale === 'en' ? 'Language' : 'Idioma'}>
+            <a class="language-switch" href={englishPath} lang="en" hreflang="en" aria-current={locale === 'en' ? 'page' : undefined} aria-label="English">EN</a>
+            <a class="language-switch" href={spanishPath} lang="es" hreflang="es" aria-current={locale === 'es' ? 'page' : undefined} aria-label="Español">ES</a>
+          </nav>
         </div>
       </div>
     </header>

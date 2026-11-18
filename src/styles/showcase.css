@@ -2,7 +2,7 @@
 :root {
   --header-height: 80px;
   --stage-paper: #efece2;
-  --stage-grid: rgb(22 54 46 / 7%);
+  --stage-grid: rgb(22 54 46 / 4.5%);
   --nav-paper: #f6f3e9;
   --nav-selected: #e6e3d8;
   --ease-out: cubic-bezier(.16, 1, .3, 1);
@@ -128,6 +128,26 @@
   height: 44px;
   border-color: transparent;
   background: transparent;
+}
+
+.language-options {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.language-options .language-switch {
+  min-width: 38px;
+  width: 38px;
+  height: 44px;
+  padding-inline: 0.35rem;
+  border: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.language-options .language-switch[aria-current="page"] {
+  background: var(--ink);
+  color: var(--canvas);
 }
 
 .hero-stage {
@@ -1151,6 +1171,20 @@
   .language-switch {
     width: 39px;
     height: 44px;
+  }
+
+  .header-inner {
+    width: calc(100% - 1rem);
+    gap: 0.15rem;
+  }
+
+  .header-actions {
+    padding: 0.15rem;
+  }
+
+  .language-options .language-switch {
+    width: 33px;
+    min-width: 33px;
   }
 }
 

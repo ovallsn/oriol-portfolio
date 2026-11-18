@@ -35,7 +35,8 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 
 ## Interaction and accessibility
 
-- English/Spanish switch routes between `/` and `/es/`; theme preference is optional and keyboard operable.
+- English is the default at `/`. Show English first in the EN/ES control and mark the current language. Spanish remains available at `/es/`, and the header signature returns to the English home.
+- Keep the trefoil rotation in its broad plane with restrained pointer tilt, so its silhouette stays balanced alongside the introduction. Use the same initial pose for its static fallback.
 - Skill filters are native buttons, expose the active state, and update a concise usage example.
 - Use short CSS transitions, visible focus rings, WCAG AA text contrast, and a reduced-motion fallback.
 - Use one entrance for the opening copy and brief, one-time reveals for project previews, experience entries and the contact panel. They remain visible with JavaScript unavailable or reduced motion enabled.
