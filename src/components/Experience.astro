@@ -8,6 +8,20 @@ interface Props {
 }
 
 const { locale, copy, entries } = Astro.props;
+const isEnglish = locale === 'en';
+const operations = new Set(['valls-solutions', 'cero-agency']);
+const tracks = [
+  {
+    id: 'technical',
+    title: isEnglish ? 'IT support & development' : 'Soporte y desarrollo',
+    entries: entries.filter((entry) => !operations.has(entry.id)),
+  },
+  {
+    id: 'operations',
+    title: isEnglish ? 'Operations & business' : 'Operaciones y negocio',
+    entries: entries.filter((entry) => operations.has(entry.id)),
+  },
+];
 ---
 
 <section class="content-section experience-section" id="experience" aria-labelledby="experience-title">
@@ -16,19 +30,22 @@ const { locale, copy, entries } = Astro.props;
     <p>{copy.intro}</p>
   </div>
 
-  <ol class="experience-list">
-    {entries.map((entry) => (
-      <li class="experience-item" data-kind={entry.kind ?? 'role'} data-scroll-reveal>
-        <div class="experience-meta">
-          <span>{entry.dates[locale]}</span>
-          {entry.note && <span class="experience-note">{entry.note[locale]}</span>}
-        </div>
-        <div class="experience-detail">
-          <p class="experience-company">{entry.company}</p>
-          <h3>{entry.title[locale]}</h3>
-          <p>{entry.description[locale]}</p>
-        </div>
-      </li>
+  <div class="career-tracks">
+    {tracks.map((track) => (
+      <section class="career-track" aria-labelledby={`career-${track.id}`}>
+        <h3 id={`career-${track.id}`}>{track.title}</h3>
+        <ol class="career-timeline">
+          {track.entries.map((entry) => (
+            <li class="career-item" data-scroll-reveal>
+              <p class="career-date">{entry.dates[locale]}</p>
+              <h4>{entry.title[locale]}</h4>
+              <p class="career-company">{entry.company}</p>
+              <p class="career-description">{entry.description[locale]}</p>
+              {entry.note && <p class="career-note">{entry.note[locale]}</p>}
+            </li>
+          ))}
+        </ol>
+      </section>
     ))}
-  </ol>
+  </div>
 </section>

@@ -237,6 +237,7 @@
 .scene-motion svg,
 .work-preview-caption svg,
 .reach-actions svg,
+.reach-form svg,
 .work-link svg {
   width: 1.05rem;
   height: 1.05rem;
@@ -761,6 +762,79 @@
   font-size: 0.79rem;
 }
 
+.career-tracks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.career-track > h3 {
+  margin: 0 0 1.45rem;
+  font-size: 1.1rem;
+  font-weight: 720;
+}
+
+.career-timeline {
+  margin: 0;
+  padding: 0.15rem 0 0 1.55rem;
+  border-inline-start: 1px solid var(--hairline);
+  list-style: none;
+}
+
+.career-item {
+  position: relative;
+}
+
+.career-item + .career-item {
+  margin-top: 1.85rem;
+}
+
+.career-item::before {
+  position: absolute;
+  inset: 0.36rem auto auto calc(-1.55rem - 5px);
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--canvas);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px var(--ink);
+  content: "";
+}
+
+.career-item h4 {
+  margin: 0.28rem 0 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-weight: 720;
+  line-height: 1.3;
+}
+
+.career-item p {
+  margin: 0;
+}
+
+.career-date {
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.career-item .career-company {
+  margin-top: 0.27rem;
+  color: var(--accent-strong);
+  font-size: 0.88rem;
+  font-weight: 670;
+}
+
+.career-item .career-description {
+  max-width: 52ch;
+  margin-top: 0.48rem;
+  font-size: 0.96rem;
+}
+
+.career-item .career-note {
+  margin-top: 0.45rem;
+  font-size: 0.79rem;
+}
+
 .reach-section {
   width: min(1280px, calc(100% - 4rem));
   padding-block: clamp(2.8rem, 6vw, 5.2rem) clamp(3rem, 7vw, 6rem);
@@ -769,18 +843,28 @@
 
 .reach-panel {
   display: grid;
-  padding: clamp(1.45rem, 5.3vw, 4.6rem);
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.83fr);
+  padding: clamp(1.4rem, 3.85vw, 3.7rem);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(2rem, 7vw, 6rem);
+  gap: clamp(1.65rem, 5vw, 4.4rem);
   border: 1px solid var(--hairline);
   border-radius: 16px;
-  background: repeating-linear-gradient(42deg, transparent 0 27px, var(--stage-grid) 27px 28px) var(--stage-paper);
+  background: repeating-linear-gradient(34deg, transparent 0 22px, var(--stage-grid) 22px 23px) var(--stage-paper);
 }
 
 .reach-copy h2 {
-  font-size: clamp(2.7rem, 6vw, 5rem);
+  font-size: clamp(2.45rem, 4.5vw, 4.15rem);
   line-height: 1.04;
+}
+
+.reach-copy h2::after {
+  display: block;
+  width: 2.75rem;
+  height: 2px;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  content: "";
 }
 
 .reach-copy p {
@@ -789,68 +873,126 @@
   font-size: clamp(1rem, 1.45vw, 1.12rem);
 }
 
-.reach-actions {
-  min-width: 0;
+.reach-actions h3 {
+  margin: 1.4rem 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 740;
 }
 
-.reach-email,
-.reach-links a {
-  display: flex;
-  width: 100%;
-  min-height: 54px;
-  padding: 0.8rem 0.95rem;
+.reach-address {
+  display: inline-flex;
+  min-height: 44px;
+  max-width: 100%;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.reach-email {
-  background: var(--ink);
-  color: var(--canvas);
-}
-
-.reach-email:hover {
-  background: var(--accent-strong);
-  color: var(--canvas);
-}
-
-.reach-actions a > span {
-  min-width: 0;
-}
-
-.reach-actions a strong,
-.reach-actions a span span {
-  display: block;
-}
-
-.reach-actions a span span {
-  margin-top: 0.1rem;
+  gap: 0.7rem;
   overflow-wrap: anywhere;
-  font-size: 0.82rem;
+  font-size: 0.91rem;
 }
 
-.reach-links {
+.reach-icon {
   display: grid;
-  margin: 0.62rem 0 0;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--nav-paper);
+}
+
+.reach-profiles {
+  display: flex;
+  margin: 0;
   padding: 0;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.62rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
 }
 
-.reach-links a {
-  height: 100%;
+.reach-profiles a {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0.52rem 0.77rem;
+  align-items: center;
+  gap: 0.45rem;
   border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--nav-paper);
+  font-size: 0.83rem;
+  font-weight: 690;
+  text-decoration: none;
+}
+
+.reach-form {
+  display: grid;
+  min-width: 0;
+  padding: clamp(0.95rem, 2.25vw, 1.75rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  background: var(--nav-paper);
+}
+
+.reach-form[hidden] {
+  display: none;
+}
+
+.reach-form-wide {
+  grid-column: 1 / -1;
+}
+
+.reach-form label {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 0.35rem;
+  font-size: 0.87rem;
+  font-weight: 680;
+}
+
+.reach-form :is(input, textarea) {
+  min-height: 46px;
+  min-width: 0;
+  width: 100%;
+  padding: 0.65rem 0.72rem;
+  border: 1px solid color-mix(in srgb, var(--hairline), var(--muted) 58%);
+  border-radius: 8px;
   background: var(--surface);
+  color: var(--ink);
+  font: 400 1rem/1.45 var(--font-body);
 }
 
-.reach-links a span span {
-  color: var(--muted);
-  font-size: 0.7rem;
+.reach-form textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
+.reach-form button {
+  display: flex;
+  min-height: 46px;
+  padding: 0.55rem 0.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--canvas);
+  font-size: 0.89rem;
+  font-weight: 730;
+}
+
+.reach-form button:hover {
+  background: var(--accent-strong);
+}
+
+.reach-form .reach-form-help {
+  margin: -0.42rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-align: center;
+}
 
 @media (max-width: 960px) {
   .portfolio-hero,
@@ -958,7 +1100,8 @@
   }
 
   .profile-grid,
-  .reach-panel {
+  .reach-panel,
+  .career-tracks {
     grid-template-columns: 1fr;
   }
 
@@ -994,18 +1137,14 @@
 }
 
 @media (max-width: 480px) {
-  .reach-links a span span {
-    display: none;
+  .reach-form {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 360px) {
   .brand {
     font-size: 0.8rem;
-  }
-
-  .reach-links {
-    grid-template-columns: 1fr;
   }
 
   .theme-toggle,

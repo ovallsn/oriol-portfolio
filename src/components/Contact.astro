@@ -9,10 +9,27 @@ interface Props {
 
 const { locale, copy, links } = Astro.props;
 const isEnglish = locale === 'en';
-const contactLinks = [
-  { label: copy.linkedinLabel, href: links.linkedin, text: 'linkedin.com/in/oriolvallsn' },
-  { label: copy.githubLabel, href: links.github, text: 'github.com/ovallsn' },
-];
+const formCopy = isEnglish ? {
+  direct: 'Contact details',
+  social: 'Find me online',
+  name: 'Your name',
+  email: 'Your email',
+  subject: 'Subject',
+  message: 'Message',
+  open: 'Open email draft',
+  help: 'Opens your email app with a draft ready to review and send.',
+  signature: 'Reply to',
+} : {
+  direct: 'Contacto directo',
+  social: 'Encuéntrame en',
+  name: 'Tu nombre',
+  email: 'Tu correo',
+  subject: 'Asunto',
+  message: 'Mensaje',
+  open: 'Abrir borrador de correo',
+  help: 'Abre tu aplicación de correo con un borrador listo para revisar y enviar.',
+  signature: 'Responder a',
+};
 ---
 
 <section class="content-section reach-section" id="contact" aria-labelledby="contact-title">
@@ -20,26 +37,63 @@ const contactLinks = [
     <div class="reach-copy">
       <h2 id="contact-title">{copy.title}</h2>
       <p>{copy.intro}</p>
+      <div class="reach-actions">
+        <h3>{formCopy.direct}</h3>
+        <a class="reach-address" href={`mailto:${links.email}`}>
+          <span class="reach-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M3 5h14v10H3zM3 5l7 6 7-6" /></svg>
+          </span>
+          <span>{links.email}</span>
+        </a>
+        <h3>{formCopy.social}</h3>
+        <ul class="reach-profiles">
+          <li><a href={links.linkedin}>{copy.linkedinLabel}<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a></li>
+          <li><a href={links.github}>{copy.githubLabel}<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="reach-actions">
-      <a class="reach-email" href={`mailto:${links.email}`}>
-        <span>
-          <strong>{isEnglish ? 'Email me' : 'Escríbeme por correo'}</strong>
-          <span>{links.email}</span>
-        </span>
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg>
-      </a>
-      <ul class="reach-links">
-        {contactLinks.map((link) => (
-          <li>
-            <a href={link.href}>
-              <span><strong>{link.label}</strong><span>{link.text}</span></span>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <form class="reach-form" data-contact-draft data-recipient={links.email} data-signature={formCopy.signature} hidden>
+      <label>
+        {formCopy.name}
+        <input name="name" type="text" autocomplete="name" maxlength="100" required />
+      </label>
+      <label>
+        {formCopy.email}
+        <input name="email" type="email" autocomplete="email" maxlength="254" required />
+      </label>
+      <label class="reach-form-wide">
+        {formCopy.subject}
+        <input name="subject" type="text" maxlength="120" required />
+      </label>
+      <label class="reach-form-wide">
+        {formCopy.message}
+        <textarea name="message" rows="4" maxlength="1500" required></textarea>
+      </label>
+      <button class="reach-form-wide" type="submit" aria-describedby="contact-draft-help">
+        {formCopy.open}
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" /></svg>
+      </button>
+      <p class="reach-form-help reach-form-wide" id="contact-draft-help">{formCopy.help}</p>
+    </form>
   </div>
 </section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-draft]');
+  if (form) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const details = new FormData(form);
+      const name = String(details.get('name')).trim();
+      const email = String(details.get('email')).trim();
+      const subject = encodeURIComponent(String(details.get('subject')).trim());
+      const message = String(details.get('message')).trim().replace(/\r?\n/g, '\r\n');
+      const body = encodeURIComponent(`${message}\r\n\r\n${name}\r\n${form.dataset.signature}: ${email}`);
+      const draft = document.createElement('a');
+      draft.href = `mailto:${form.dataset.recipient}?subject=${subject}&body=${body}`;
+      draft.click();
+    });
+    form.hidden = false;
+  }
+</script>
