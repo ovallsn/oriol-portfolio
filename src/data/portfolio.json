@@ -1,0 +1,307 @@
+{
+  "copy": {
+    "en": {
+      "hero": {
+        "headline": "Technical & Application Support",
+        "summary": "I troubleshoot application issues, support users and follow cases through to resolution. I also built and run Valls Solutions, where I manage the website and client operations.",
+        "availability": "Open to international remote roles",
+        "workLink": "View projects"
+      },
+      "about": {
+        "title": "About me",
+        "body": "I started in Java development and moved into IT support and systems administration at Foment Formació. I like getting to the bottom of a problem: reproducing it, finding out what changed, and explaining the next step to the person waiting for an answer.",
+        "secondBody": "I founded Valls Solutions and run its bilingual website and client operations. Working directly with customers has taught me to set clear expectations and follow up until the work is done."
+      },
+      "approach": {
+        "title": "How I handle an issue",
+        "steps": [
+          { "title": "Get the context", "body": "Ask what changed, who is affected, and what needs to work again." },
+          { "title": "Trace the problem", "body": "Reproduce the issue and check the relevant application, system or data." },
+          { "title": "Keep people informed", "body": "Explain what I know, what I’m checking, and what happens next." },
+          { "title": "Close the case", "body": "Confirm the outcome and leave a useful record for the next person." }
+        ]
+      },
+      "skills": {
+        "title": "Tools and areas I work with.",
+        "allLabel": "All",
+        "defaultExample": "I combine investigation, clear communication, and consistent follow-up across the support process.",
+        "filterLabel": "Filter capabilities"
+      },
+      "experience": {
+        "title": "Experience in IT support and service operations",
+        "intro": "User-facing IT support, systems administration, client operations, and running my own service business."
+      },
+      "work": {
+        "title": "Selected work",
+        "intro": "An anonymized application-support case, client operations work, my business, and a personal Android project.",
+        "privateLabel": "Anonymized case study",
+        "businessLabel": "Business & service operations",
+        "productLabel": "Independent product",
+        "visitLabel": "Visit the website",
+        "repositoryLabel": "View the repository"
+      },
+      "contact": {
+        "title": "Let’s talk.",
+        "intro": "I’m looking for an international remote role in technical support, application support or IT operations. If that sounds like your team, I’d be happy to hear from you.",
+        "emailLabel": "Email",
+        "linkedinLabel": "LinkedIn",
+        "githubLabel": "GitHub",
+        "businessLabel": "My business"
+      }
+    },
+    "es": {
+      "hero": {
+        "headline": "Soporte técnico y de aplicaciones",
+        "summary": "Investigo fallos en aplicaciones, ayudo a usuarios y hago seguimiento hasta resolver las incidencias. También fundé Valls Solutions, donde gestiono la web y las operaciones con clientes.",
+        "availability": "Disponible para trabajo remoto internacional",
+        "workLink": "Ver proyectos"
+      },
+      "about": {
+        "title": "Sobre mí",
+        "body": "Empecé en desarrollo Java y después pasé al soporte TIC y la administración de sistemas en Foment Formació. Me gusta llegar al origen de una incidencia: reproducirla, entender qué cambió y explicar el siguiente paso a la persona que espera una respuesta.",
+        "secondBody": "Fundé Valls Solutions y gestiono su web bilingüe y las operaciones con clientes. Tratar directamente con ellos me ha enseñado a explicar qué pueden esperar y a dar seguimiento hasta cerrar cada caso."
+      },
+      "approach": {
+        "title": "Cómo gestiono una incidencia",
+        "steps": [
+          { "title": "Entender el contexto", "body": "Pregunto qué ha cambiado, a quién afecta y qué debe volver a funcionar." },
+          { "title": "Seguir la incidencia", "body": "Reproduzco el problema y reviso la aplicación, el sistema o los datos implicados." },
+          { "title": "Mantener informadas a las personas", "body": "Explico qué sé, qué estoy comprobando y cuál es el siguiente paso." },
+          { "title": "Cerrar el caso", "body": "Confirmo el resultado y dejo un registro útil para la siguiente persona." }
+        ]
+      },
+      "skills": {
+        "title": "Herramientas y áreas en las que trabajo.",
+        "allLabel": "Todas",
+        "defaultExample": "Combino investigación, comunicación clara y seguimiento constante durante el proceso de soporte.",
+        "filterLabel": "Filtrar capacidades"
+      },
+      "experience": {
+        "title": "Experiencia en soporte TIC y operaciones de servicio",
+        "intro": "Soporte TIC a usuarios, administración de sistemas, operaciones de clientes y gestión de mi propio negocio."
+      },
+      "work": {
+        "title": "Proyectos seleccionados",
+        "intro": "Un caso anonimizado de soporte de aplicaciones, operaciones de clientes, mi negocio y un proyecto Android personal.",
+        "privateLabel": "Caso anonimizado",
+        "businessLabel": "Negocio y operaciones de servicio",
+        "productLabel": "Proyecto personal",
+        "visitLabel": "Visitar la web",
+        "repositoryLabel": "Ver el repositorio"
+      },
+      "contact": {
+        "title": "¿Hablamos?",
+        "intro": "Busco un puesto remoto internacional en soporte técnico, soporte de aplicaciones u operaciones de TI. Si mi perfil encaja con lo que necesita tu equipo, escríbeme.",
+        "emailLabel": "Correo electrónico",
+        "linkedinLabel": "LinkedIn",
+        "githubLabel": "GitHub",
+        "businessLabel": "Mi negocio"
+      }
+    }
+  },
+  "cvLinks": {
+    "support": {
+      "en": "https://github.com/ovallsn/cv/raw/refs/heads/main/Oriol_Valls_CV_A_Technical_Support_Client_Operations_EN.pdf",
+      "es": "https://github.com/ovallsn/cv/raw/refs/heads/main/Oriol_Valls_CV_A_Soporte_Tecnico_Operaciones_Cliente_ES.pdf"
+    },
+    "application": {
+      "en": "https://github.com/ovallsn/cv/raw/refs/heads/main/Oriol_Valls_CV_B_Backend_Application_Support_EN.pdf",
+      "es": "https://github.com/ovallsn/cv/raw/refs/heads/main/Oriol_Valls_CV_B_Backend_Soporte_Aplicaciones_ES.pdf"
+    }
+  },
+  "skillGroups": [
+    {
+      "id": "support",
+      "label": { "en": "Support", "es": "Soporte" },
+      "example": {
+        "en": "Start with impact, isolate the issue, and keep the next action visible.",
+        "es": "Empiezo por el impacto, acoto la incidencia y mantengo visible el siguiente paso."
+      },
+      "skills": {
+        "en": ["Technical support", "Application support", "Troubleshooting", "Incident triage", "Case tracking", "Documentation"],
+        "es": ["Soporte técnico", "Soporte de aplicaciones", "Resolución de incidencias", "Clasificación de incidencias", "Seguimiento de casos", "Documentación"]
+      }
+    },
+    {
+      "id": "systems",
+      "label": { "en": "Systems", "es": "Sistemas" },
+      "example": {
+        "en": "Support Linux and Windows environments alongside Google Workspace and Microsoft 365.",
+        "es": "Doy soporte a entornos Linux y Windows, además de Google Workspace y Microsoft 365."
+      },
+      "skills": {
+        "en": ["Linux", "Windows", "Systems administration", "Google Workspace", "Microsoft 365"],
+        "es": ["Linux", "Windows", "Administración de sistemas", "Google Workspace", "Microsoft 365"]
+      }
+    },
+    {
+      "id": "applications",
+      "label": { "en": "Applications", "es": "Aplicaciones" },
+      "example": {
+        "en": "Work across Laravel/PHP applications, SQL data, and REST APIs; use Java in development contexts.",
+        "es": "Trabajo con aplicaciones Laravel/PHP, datos SQL y API REST; también he usado Java en desarrollo."
+      },
+      "skills": {
+        "en": ["Laravel / PHP", "SQL", "REST APIs", "Java"],
+        "es": ["Laravel / PHP", "SQL", "API REST", "Java"]
+      }
+    },
+    {
+      "id": "operations",
+      "label": { "en": "Operations", "es": "Operaciones" },
+      "example": {
+        "en": "Coordinate onboarding, case tracking, and documentation so people know what happens next.",
+        "es": "Coordino la incorporación, el seguimiento y la documentación para que cada persona sepa qué viene después."
+      },
+      "skills": {
+        "en": ["Client operations", "Onboarding", "Case tracking", "Process documentation"],
+        "es": ["Operaciones de clientes", "Incorporación de clientes", "Seguimiento de casos", "Documentación de procesos"]
+      }
+    }
+  ],
+  "experience": [
+    {
+      "id": "valls-solutions",
+      "company": "Valls Solutions",
+      "title": { "en": "Founder & Business Operations", "es": "Fundador y responsable de operaciones" },
+      "dates": { "en": "Present", "es": "Actualidad" },
+      "description": {
+        "en": "Built and run a bilingual service business, owning its customer journey, website, documentation, and day-to-day operations.",
+        "es": "He creado y dirijo un negocio de servicios bilingüe, gestionando la experiencia de cliente, la web, la documentación y las operaciones diarias."
+      },
+      "kind": "business"
+    },
+    {
+      "id": "cero-agency",
+      "company": "Cero Agency",
+      "title": { "en": "Client Operations Specialist", "es": "Especialista de Operaciones de Clientes" },
+      "dates": { "en": "Mar–Sep 2026", "es": "Mar–sep 2026" },
+      "description": {
+        "en": "Supported client operations in a B2B service workflow, organizing requests, communication, and follow-through.",
+        "es": "Di soporte a las operaciones de clientes en un servicio B2B, organizando solicitudes, comunicación y seguimiento."
+      },
+      "note": { "en": "B2B contractor via Valls Solutions LLC", "es": "Contrato B2B a través de Valls Solutions LLC" }
+    },
+    {
+      "id": "foment-senior-ict",
+      "company": "Foment Formació",
+      "title": { "en": "Senior ICT Technician / Systems Administrator", "es": "Técnico sénior de TIC / Administrador de sistemas" },
+      "dates": { "en": "Feb 2021–Feb 2024", "es": "Feb 2021–feb 2024" },
+      "description": {
+        "en": "Provided user-facing ICT support and systems administration for day-to-day workplace needs.",
+        "es": "Ofrecí soporte TIC a usuarios y administré sistemas para las necesidades diarias del entorno de trabajo."
+      }
+    },
+    {
+      "id": "foment-ict",
+      "company": "Foment Formació",
+      "title": { "en": "ICT Technician", "es": "Técnico de TIC" },
+      "dates": { "en": "Oct 2019–Mar 2020", "es": "Oct 2019–mar 2020" },
+      "description": {
+        "en": "Handled practical technical support for users and workplace technology.",
+        "es": "Resolví necesidades de soporte técnico de usuarios y tecnología del entorno de trabajo."
+      }
+    },
+    {
+      "id": "uoc-java",
+      "company": "UOC",
+      "title": { "en": "Junior Java Developer", "es": "Desarrollador Java júnior" },
+      "dates": { "en": "Feb–Jun 2017", "es": "Feb–jun 2017" },
+      "description": {
+        "en": "Worked in a junior Java development role, building a foundation in application behavior and debugging.",
+        "es": "Trabajé en un puesto júnior de desarrollo Java y adquirí una base en el comportamiento y la depuración de aplicaciones."
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "internal-application",
+      "kind": "case",
+      "title": {
+        "en": "Application support for an internal Laravel system",
+        "es": "Soporte de aplicaciones para un sistema interno en Laravel"
+      },
+      "summary": {
+        "en": "Investigated application issues across Laravel/PHP, SQL data, and REST APIs, then translated findings into clear next steps.",
+        "es": "Investigué incidencias en una aplicación Laravel/PHP, datos SQL y API REST, y convertí los hallazgos en siguientes pasos claros."
+      },
+      "contribution": {
+        "en": "Reproduced reported behavior, traced relevant application and data context, documented findings, and kept the case moving through resolution or handoff.",
+        "es": "Reproduje el comportamiento comunicado, revisé el contexto de la aplicación y los datos, documenté los hallazgos y mantuve el caso en curso hasta su resolución o traspaso."
+      },
+      "tools": ["Laravel / PHP", "SQL", "REST APIs", "Troubleshooting"],
+      "confidentialityNote": {
+        "en": "Anonymized to protect employer and client information.",
+        "es": "Anonimizado para proteger la información de la empresa y sus clientes."
+      }
+    },
+    {
+      "id": "client-operations",
+      "kind": "case",
+      "title": {
+        "en": "Keeping client requests clear from intake to follow-up",
+        "es": "Seguimiento de solicitudes en un servicio B2B"
+      },
+      "summary": {
+        "en": "Supported a B2B service workflow by organizing incoming requests, client communication, and follow-through.",
+        "es": "Di soporte a un flujo de servicio B2B organizando solicitudes, comunicación con clientes y seguimiento."
+      },
+      "contribution": {
+        "en": "Kept request context and next actions visible so clients and internal teams could understand what was happening and what came next.",
+        "es": "Mantuve visible el contexto de cada solicitud y los siguientes pasos para que clientes y equipos internos supieran qué ocurría y qué venía después."
+      },
+      "tools": ["Client operations", "Case tracking", "Onboarding", "Documentation"],
+      "confidentialityNote": {
+        "en": "Anonymized overview; no client names or account details are shared.",
+        "es": "Descripción anonimizada; no se comparten nombres de clientes ni datos de cuentas."
+      }
+    },
+    {
+      "id": "valls-solutions",
+      "kind": "business",
+      "title": {
+        "en": "Building and running Valls Solutions",
+        "es": "Crear y dirigir Valls Solutions"
+      },
+      "summary": {
+        "en": "I founded a service business that helps entrepreneurs form U.S. LLCs. I built its bilingual website and manage client enquiries, onboarding and day-to-day operations.",
+        "es": "Fundé un negocio que ayuda a emprendedores a constituir LLC en Estados Unidos. Creé su web bilingüe y me encargo de las consultas, la incorporación de clientes y las operaciones diarias."
+      },
+      "contribution": {
+        "en": "I turned the service into a clear process clients can follow, from the first enquiry to receiving their documents.",
+        "es": "Organicé el servicio en pasos que el cliente puede seguir, desde la primera consulta hasta la entrega de sus documentos."
+      },
+      "tools": ["Business operations", "Customer support", "Website management", "Process documentation"],
+      "destinationUrl": "https://vallssolutions.com",
+      "proof": {
+        "value": "100+",
+        "en": "LLC formations reported by Valls Solutions",
+        "es": "constituciones de LLC declaradas por Valls Solutions"
+      }
+    },
+    {
+      "id": "letsstudy",
+      "kind": "product",
+      "title": {
+        "en": "LetsStudy — a local-first Android learning app",
+        "es": "LetsStudy: una aplicación Android de aprendizaje local-first"
+      },
+      "summary": {
+        "en": "An Android app I built for studying and interview practice. It stores study material on the device and lets users opt into cloud sync.",
+        "es": "Una app Android que creé para estudiar y preparar entrevistas. Guarda el material en el dispositivo y permite activar la sincronización en la nube."
+      },
+      "contribution": {
+        "en": "Built with Kotlin, Jetpack Compose, and Room, with opt-in Firebase sync and validated AI-generated content.",
+        "es": "Desarrollado con Kotlin, Jetpack Compose y Room, con sincronización Firebase opcional y contenido generado por IA con validación."
+      },
+      "tools": ["Kotlin", "Jetpack Compose", "Room", "Firebase"],
+      "destinationUrl": "https://github.com/ovallsn/letsstudy"
+    }
+  ],
+  "contact": {
+    "email": "oriolvallsnunezz@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/oriolvallsn/",
+    "github": "https://github.com/ovallsn",
+    "business": "https://vallssolutions.com"
+  }
+}

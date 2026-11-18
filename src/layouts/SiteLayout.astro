@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+import '../styles/showcase.css';
+
+type Locale = 'en' | 'es';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  canonicalPath: '/' | '/es/';
+}
+
+const { locale, title, description, canonicalPath } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const englishPath = base;
+const spanishPath = `${base}es/`;
+const englishUrl = new URL(base, Astro.site).toString();
+const spanishUrl = new URL(`${base}es/`, Astro.site).toString();
+const canonicalUrl = new URL(
+  `${base}${canonicalPath === '/' ? '' : canonicalPath.slice(1)}`,
+  Astro.site,
+).toString();
+const socialCardUrl = new URL(`${base}social-card.png`, Astro.site).toString();
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${englishUrl}#person`,
+  name: 'Oriol Valls',
+  url: englishUrl,
+  description,
+  jobTitle: 'Technical & Application Support Professional',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Valls Solutions',
+    url: 'https://vallssolutions.com',
+  },
+  knowsAbout: [
+    'Technical support',
+    'Application support',
+    'IT operations',
+    'Client operations',
+    'Linux and Windows systems',
+    'Laravel and PHP',
+    'SQL and REST APIs',
+  ],
+  sameAs: [
+    'https://www.linkedin.com/in/oriolvallsn/',
+    'https://github.com/ovallsn',
+  ],
+};
+
+const copy = locale === 'en'
+  ? {
+      skip: 'Skip to content',
+      nav: 'Main navigation',
+      menu: 'Navigation menu',
+      about: 'About',
+      skills: 'Skills',
+      experience: 'Experience',
+      work: 'Selected work',
+      contact: 'Contact',
+      theme: 'Switch color theme',
+      language: 'Change language to Spanish',
+      footer: 'Technical support · Application support · IT operations',
+      top: 'Back to top',
+    }
+  : {
+      skip: 'Saltar al contenido',
+      nav: 'Navegación principal',
+      menu: 'Menú de navegación',
+      about: 'Sobre mí',
+      skills: 'Herramientas',
+      experience: 'Experiencia',
+      work: 'Proyectos',
+      contact: 'Contacto',
+      theme: 'Cambiar el tema de color',
+      language: 'Cambiar el idioma a inglés',
+      footer: 'Soporte técnico · Aplicaciones · Operaciones de TI',
+      top: 'Volver arriba',
+    };
+
+const navLinks = [
+  { href: '#about', label: copy.about },
+  { href: '#work', label: copy.work },
+  { href: '#skills', label: copy.skills },
+  { href: '#experience', label: copy.experience },
+  { href: '#contact', label: copy.contact },
+];
+---
+
+<!doctype html>
+<html lang={locale} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F4F1E9" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="es" href={spanishUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oriol Valls" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_ES'} />
+    <meta property="og:image" content={socialCardUrl} />
+    <meta property="og:image:secure_url" content={socialCardUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={locale === 'en' ? 'Oriol Valls — Technical & Application Support with Valls Solutions business evidence' : 'Oriol Valls — Soporte técnico y de aplicaciones con experiencia en Valls Solutions'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialCardUrl} />
+    <script is:inline>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem('ovalls-theme');
+          if (storedTheme === 'light' || storedTheme === 'dark') {
+            document.documentElement.dataset.theme = storedTheme;
+          }
+        } catch {
+          // Storage can be disabled; the light theme remains readable.
+        }
+      })();
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{copy.skip}</a>
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="brand" href={locale === 'en' ? englishPath : spanishPath} aria-label={locale === 'en' ? 'Oriol Valls, home' : 'Oriol Valls, inicio'}>
+          <img src={`${base}favicon.svg`} width="26" height="26" alt="" />
+          <span class="brand-name">Oriol <strong>Valls</strong></span>
+        </a>
+
+        <details class="site-nav" data-site-nav open>
+          <summary aria-label={copy.menu}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <span>{locale === 'en' ? 'Menu' : 'Menú'}</span>
+          </summary>
+          <nav aria-label={copy.nav}>
+            <ul class="nav-list">
+              {navLinks.map((link) => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </details>
+
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label={copy.theme}
+            aria-pressed="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="theme-icon theme-icon--sun">
+              <circle cx="12" cy="12" r="3.7" />
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="theme-icon theme-icon--moon">
+              <path d="M20.2 15.4A8.6 8.6 0 0 1 8.6 3.8 8.7 8.7 0 1 0 20.2 15.4Z" />
+            </svg>
+          </button>
+          <a
+            class="language-switch"
+            href={locale === 'en' ? spanishPath : englishPath}
+            lang={locale === 'en' ? 'es' : 'en'}
+            hreflang={locale === 'en' ? 'es' : 'en'}
+            aria-label={copy.language}
+          >{locale === 'en' ? 'ES' : 'EN'}</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="footer-name" href={base}>Oriol Valls</a>
+        <p>{copy.footer}</p>
+        <a class="back-to-top" href="#top">
+          {copy.top}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14V2m-4 4 4-4 4 4" /></svg>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>

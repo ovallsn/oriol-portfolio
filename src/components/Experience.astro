@@ -1,0 +1,34 @@
+---
+import type { ExperienceEntry, Locale, PortfolioCopy } from '../data/portfolio';
+
+interface Props {
+  locale: Locale;
+  copy: PortfolioCopy['experience'];
+  entries: ExperienceEntry[];
+}
+
+const { locale, copy, entries } = Astro.props;
+---
+
+<section class="content-section experience-section" id="experience" aria-labelledby="experience-title">
+  <div class="section-heading experience-heading">
+    <h2 id="experience-title">{copy.title}</h2>
+    <p>{copy.intro}</p>
+  </div>
+
+  <ol class="experience-list">
+    {entries.map((entry) => (
+      <li class="experience-item" data-kind={entry.kind ?? 'role'}>
+        <div class="experience-meta">
+          <span>{entry.dates[locale]}</span>
+          {entry.note && <span class="experience-note">{entry.note[locale]}</span>}
+        </div>
+        <div class="experience-detail">
+          <p class="experience-company">{entry.company}</p>
+          <h3>{entry.title[locale]}</h3>
+          <p>{entry.description[locale]}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

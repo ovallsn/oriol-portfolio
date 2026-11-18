@@ -1,0 +1,76 @@
+---
+import scenePoster from '../assets/work/scene-poster.webp';
+import type { Locale, PortfolioCopy, PortfolioData } from '../data/portfolio';
+
+interface Props {
+  locale: Locale;
+  copy: PortfolioCopy['hero'];
+  cvLinks: PortfolioData['cvLinks'];
+}
+
+const { locale, copy, cvLinks } = Astro.props;
+const labels = locale === 'en'
+  ? {
+      greeting: 'Hi, I’m',
+      support: 'CV · Technical Support',
+      application: 'CV · Application Support',
+      resumes: 'Download CV',
+      pause: 'Pause animation',
+      play: 'Play animation',
+    }
+  : {
+      greeting: 'Hola, soy',
+      support: 'CV · Soporte técnico',
+      application: 'CV · Soporte de aplicaciones',
+      resumes: 'Descargar CV',
+      pause: 'Pausar animación',
+      play: 'Reproducir animación',
+    };
+---
+
+<section class="hero-stage" aria-labelledby="hero-title">
+  <div class="portfolio-hero">
+    <div class="portfolio-hero-copy">
+      <h1 id="hero-title">
+        <span class="hero-greeting">{labels.greeting}</span>
+        Oriol Valls
+      </h1>
+      <p class="portfolio-role">{copy.headline}</p>
+      <p class="portfolio-intro">{copy.summary}</p>
+      <p class="portfolio-availability"><span aria-hidden="true"></span>{copy.availability}</p>
+      <div class="portfolio-actions">
+        <a class="portfolio-action" href="#work">
+          {copy.workLink}
+          <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12m-5-5 5 5 5-5" /></svg>
+        </a>
+        <details class="portfolio-cvs">
+          <summary>
+            {labels.resumes}
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M5 7l4 4 4-4" /></svg>
+          </summary>
+          <div class="portfolio-cv-list">
+            <a href={cvLinks.support[locale]}>{labels.support}</a>
+            <a href={cvLinks.application[locale]}>{labels.application}</a>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="hero-scene" data-hero-scene>
+      <canvas aria-hidden="true"></canvas>
+      <noscript>
+        <img class="scene-poster" src={scenePoster.src} width={scenePoster.width} height={scenePoster.height} alt="" />
+      </noscript>
+      <button class="scene-motion" type="button" hidden data-pause={labels.pause} data-play={labels.play}>
+        <svg viewBox="0 0 18 18" aria-hidden="true">
+          <path class="scene-pause-icon" d="M6.5 5v8m5-8v8" />
+          <path class="scene-play-icon" d="M6.5 4.5l7 4.5-7 4.5z" />
+        </svg>
+        <span>{labels.pause}</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import '../scripts/hero-scene';
+</script>

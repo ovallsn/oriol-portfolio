@@ -1,0 +1,42 @@
+---
+import type { Locale, PortfolioCopy, SkillGroup } from '../data/portfolio';
+
+interface Props {
+  locale: Locale;
+  copy: PortfolioCopy['skills'];
+  groups: SkillGroup[];
+}
+
+const { locale, copy, groups } = Astro.props;
+---
+
+<section class="content-section skills-section" id="skills" aria-labelledby="skills-title">
+  <div class="section-heading skills-heading">
+    <h2 id="skills-title">{copy.title}</h2>
+    <p>{locale === 'en' ? 'Choose an area to see the tools and work behind it.' : 'Elige un área para ver las herramientas y tareas que incluye.'}</p>
+  </div>
+
+  <div class="skills-browser">
+    <div class="skill-filters" role="group" aria-label={copy.filterLabel} data-skill-filters hidden>
+      <button type="button" data-skill-filter="all" data-example={copy.defaultExample} aria-pressed="true">{copy.allLabel}</button>
+      {groups.map((group) => (
+        <button type="button" data-skill-filter={group.id} data-example={group.example[locale]} aria-pressed="false">
+          {group.label[locale]}
+        </button>
+      ))}
+    </div>
+
+    <p class="skill-example" aria-live="polite" data-skill-example>{copy.defaultExample}</p>
+
+    <div class="skill-groups">
+      {groups.map((group) => (
+        <section class="skill-group" data-skill-group={group.id} aria-labelledby={`skill-${group.id}`}>
+          <h3 id={`skill-${group.id}`}>{group.label[locale]}</h3>
+          <ul>
+            {group.skills[locale].map((skill) => <li>{skill}</li>)}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</section>

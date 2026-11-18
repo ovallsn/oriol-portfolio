@@ -1,0 +1,27 @@
+---
+import About from '../../components/About.astro';
+import Contact from '../../components/Contact.astro';
+import Experience from '../../components/Experience.astro';
+import Hero from '../../components/Hero.astro';
+import Projects from '../../components/Projects.astro';
+import Skills from '../../components/Skills.astro';
+import { portfolio } from '../../data/portfolio';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const locale = 'es';
+const copy = portfolio.copy[locale];
+---
+
+<SiteLayout
+  locale="es"
+  title="Oriol Valls — Soporte técnico y de aplicaciones"
+  description="Profesional de soporte técnico y de aplicaciones, con experiencia en resolución de incidencias, sistemas internos y operaciones de clientes."
+  canonicalPath="/es/"
+>
+  <Hero locale={locale} copy={copy.hero} cvLinks={portfolio.cvLinks} />
+  <About locale={locale} about={copy.about} approach={copy.approach} />
+  <Projects locale={locale} copy={copy.work} projects={portfolio.projects} />
+  <Skills locale={locale} copy={copy.skills} groups={portfolio.skillGroups} />
+  <Experience locale={locale} copy={copy.experience} entries={portfolio.experience} />
+  <Contact locale={locale} copy={copy.contact} links={portfolio.contact} />
+</SiteLayout>

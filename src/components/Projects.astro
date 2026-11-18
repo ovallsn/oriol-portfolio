@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import vallsPreviewEn from '../assets/work/valls-home-en.webp';
+import vallsPreviewEs from '../assets/work/valls-home-es.webp';
+import letsStudyHome from '../assets/work/letsstudy-home.webp';
+import letsStudyInterview from '../assets/work/letsstudy-interview.webp';
+import type { Locale, PortfolioCopy, ProjectEntry } from '../data/portfolio';
+
+interface Props {
+  locale: Locale;
+  copy: PortfolioCopy['work'];
+  projects: ProjectEntry[];
+}
+
+const { locale, copy, projects } = Astro.props;
+const featured = projects.filter((project) => project.kind !== 'case');
+const cases = projects.filter((project) => project.kind === 'case');
+const isEnglish = locale === 'en';
+const vallsPreview = isEnglish ? vallsPreviewEn : vallsPreviewEs;
+const labels = {
+  cases: isEnglish ? 'Support and client operations' : 'Soporte y operaciones con clientes',
+  business: isEnglish ? 'Founder · Website & client operations' : 'Fundador · Web y operaciones con clientes',
+  app: isEnglish ? 'Personal Android project' : 'Proyecto personal para Android',
+  businessImage: isEnglish ? 'Homepage of the Valls Solutions website for U.S. LLC formation.' : 'Portada de Valls Solutions, la web bilingüe para constituir LLC en Estados Unidos.',
+  homeImage: isEnglish ? 'LetsStudy home screen with options to study a topic or prepare for a job.' : 'Pantalla de inicio de LetsStudy, con opciones para estudiar un tema o preparar una entrevista.',
+  interviewImage: isEnglish ? 'LetsStudy interview practice screen, with options to add a job link and choose a language.' : 'Pantalla de preparación para entrevistas de LetsStudy, con opciones para añadir una oferta y elegir el idioma.',
+};
+---
+
+<section class="content-section work-showcase" id="work" aria-labelledby="work-title">
+  <h2 id="work-title">{copy.title}</h2>
+  <div class="work-gallery">
+    {featured.map((project) => (
+      <article class:list={['work-feature', `work-feature--${project.kind}`]} aria-labelledby={`project-${project.id}-title`}>
+        <a class="work-preview-link" href={project.destinationUrl} aria-labelledby={`preview-${project.id}-label project-${project.id}-title`}>
+          <div class:list={['work-preview', `work-preview--${project.kind}`]}>
+            {project.kind === 'business' ? (
+              <div class="browser-frame">
+                <div class="browser-address" aria-hidden="true">vallssolutions.com</div>
+                <Image src={vallsPreview} alt={labels.businessImage} widths={[600, 960, 1440]} sizes="(max-width: 740px) 85vw, 48vw" />
+              </div>
+            ) : (
+              <div class="phone-pair">
+                <Image src={letsStudyHome} alt={labels.homeImage} widths={[240, 360, 540]} sizes="(max-width: 740px) 32vw, 180px" />
+                <Image src={letsStudyInterview} alt={labels.interviewImage} widths={[240, 360, 540]} sizes="(max-width: 740px) 32vw, 180px" />
+              </div>
+            )}
+          </div>
+          <span class="work-preview-caption" id={`preview-${project.id}-label`}>
+            {project.kind === 'product' ? copy.repositoryLabel : copy.visitLabel}
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg>
+          </span>
+        </a>
+        <div class="work-feature-body">
+          <p class="work-role">{project.kind === 'business' ? labels.business : labels.app}</p>
+          <h3 id={`project-${project.id}-title`}>{project.kind === 'business' ? 'Valls Solutions' : 'LetsStudy'}</h3>
+          <p>{project.summary[locale]}</p>
+          <p>{project.contribution[locale]}</p>
+          {project.proof && <p class="work-proof"><strong>{project.proof.value}</strong> {project.proof[locale]}</p>}
+          <ul class="work-tools" aria-label={isEnglish ? 'Tools and focus areas' : 'Herramientas y áreas de trabajo'}>
+            {project.tools.map((tool) => <li>{tool}</li>)}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="work-cases">
+    <h3>{labels.cases}</h3>
+    <div class="work-case-list">
+      {cases.map((project) => (
+        <details class="work-case">
+          <summary>{project.title[locale]}</summary>
+          <div class="work-case-body">
+            <p>{project.summary[locale]}</p>
+            <p>{project.contribution[locale]}</p>
+            <ul class="work-tools" aria-label={isEnglish ? 'Tools and focus areas' : 'Herramientas y áreas de trabajo'}>
+              {project.tools.map((tool) => <li>{tool}</li>)}
+            </ul>
+            {project.confidentialityNote && <p class="work-confidential">{project.confidentialityNote[locale]}</p>}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

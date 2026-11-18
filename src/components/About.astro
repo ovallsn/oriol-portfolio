@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/profile/oriol-valls.webp';
+import type { Locale, PortfolioCopy } from '../data/portfolio';
+
+interface Props {
+  locale: Locale;
+  about: PortfolioCopy['about'];
+  approach: PortfolioCopy['approach'];
+}
+
+const { locale, about, approach } = Astro.props;
+const isEnglish = locale === 'en';
+---
+
+<section class="content-section profile-section" id="about" aria-labelledby="about-title">
+  <div class="profile-grid">
+    <div class="profile-copy">
+      <h2 id="about-title">{about.title}</h2>
+      <p>{about.body}</p>
+      <p>{about.secondBody}</p>
+      <a class="work-link" href="#contact">
+        {isEnglish ? 'Get in touch' : 'Contactar conmigo'}
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12m-5-5 5 5 5-5" /></svg>
+      </a>
+    </div>
+    <figure class="profile-portrait">
+      <Image src={portrait} alt="Oriol Valls" widths={[160, 240, 288]} sizes="(max-width: 740px) 240px, 288px" />
+      <figcaption>Oriol Valls</figcaption>
+    </figure>
+  </div>
+
+  <details class="work-case profile-approach" id="approach">
+    <summary>{approach.title}</summary>
+    <ol class="profile-steps">
+      {approach.steps.map((step) => (
+        <li>
+          <strong>{step.title}</strong>
+          <p>{step.body}</p>
+        </li>
+      ))}
+    </ol>
+  </details>
+</section>
