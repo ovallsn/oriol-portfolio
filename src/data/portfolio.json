@@ -296,6 +296,60 @@
       },
       "tools": ["Kotlin", "Jetpack Compose", "Room", "Firebase"],
       "destinationUrl": "https://github.com/ovallsn/letsstudy"
+    },
+    {
+      "id": "shopify-storefront",
+      "kind": "additional",
+      "title": {
+        "en": "Shopify storefront for a trading card business",
+        "es": "Tienda Shopify para un negocio de cartas coleccionables"
+      },
+      "summary": {
+        "en": "I customized the Shopify theme and organized navigation, collections and filters to make trading cards easier to browse.",
+        "es": "Personalicé el tema de Shopify y organicé la navegación, las colecciones y los filtros para facilitar la búsqueda de cartas."
+      },
+      "contribution": {
+        "en": "The repository documents the work completed before the client cancelled the launch.",
+        "es": "El repositorio documenta el trabajo realizado antes de que el cliente cancelara el lanzamiento."
+      },
+      "tools": ["Shopify"],
+      "destinationUrl": "https://github.com/ovallsn/shopify-pokemon-card-store"
+    },
+    {
+      "id": "dual-timezone-clock",
+      "kind": "additional",
+      "title": {
+        "en": "Dual Time Zone Clock for Android",
+        "es": "Reloj de dos zonas horarias para Android"
+      },
+      "summary": {
+        "en": "An Android app in development that switches between Madrid time and a second time zone selected by the user.",
+        "es": "Una app Android en desarrollo que alterna entre la hora de Madrid y una segunda zona horaria que elige el usuario."
+      },
+      "contribution": {
+        "en": "I built the full-screen clock and time zone picker with Kotlin and Jetpack Compose.",
+        "es": "Creé el reloj a pantalla completa y el selector de zonas horarias con Kotlin y Jetpack Compose."
+      },
+      "tools": ["Kotlin", "Jetpack Compose"],
+      "destinationUrl": "https://github.com/ovallsn/dual-timezone-clock-android"
+    },
+    {
+      "id": "vallstv",
+      "kind": "additional",
+      "title": {
+        "en": "VallsTV on Twitch",
+        "es": "VallsTV en Twitch"
+      },
+      "summary": {
+        "en": "I ran a personal Twitch channel where I streamed games including World of Warcraft.",
+        "es": "Llevé un canal personal de Twitch donde hacía directos de videojuegos como World of Warcraft."
+      },
+      "contribution": {
+        "en": "The channel has about 1,300 followers and still hosts highlights from my streams.",
+        "es": "El canal tiene alrededor de 1.300 seguidores y conserva vídeos destacados de mis directos."
+      },
+      "tools": ["Twitch"],
+      "destinationUrl": "https://www.twitch.tv/vallstv"
     }
   ],
   "contact": {

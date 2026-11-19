@@ -17,7 +17,6 @@ const formCopy = isEnglish ? {
   subject: 'Subject',
   message: 'Message',
   send: 'Send message',
-  help: 'Your message is sent through FormSubmit. I’ll reply to the email address you provide.',
 } : {
   direct: 'Contacto directo',
   social: 'Encuéntrame en',
@@ -26,7 +25,6 @@ const formCopy = isEnglish ? {
   subject: 'Asunto',
   message: 'Mensaje',
   send: 'Enviar mensaje',
-  help: 'El mensaje se envía a través de FormSubmit. Te responderé al correo que indiques.',
 };
 ---
 
@@ -70,11 +68,10 @@ const formCopy = isEnglish ? {
         {formCopy.message}
         <textarea name="message" rows="4" maxlength="1500" required></textarea>
       </label>
-      <button class="reach-form-wide" type="submit" aria-describedby="contact-form-help">
+      <button class="reach-form-wide" type="submit">
         {formCopy.send}
         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" /></svg>
       </button>
-      <p class="reach-form-help reach-form-wide" id="contact-form-help">{formCopy.help}</p>
     </form>
   </div>
 </section>

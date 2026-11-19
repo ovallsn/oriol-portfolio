@@ -72,7 +72,7 @@ export interface ExperienceEntry {
 
 export interface ProjectEntry {
   id: string;
-  kind: 'case' | 'business' | 'product';
+  kind: 'case' | 'business' | 'product' | 'additional';
   title: LocalizedText;
   summary: LocalizedText;
   contribution: LocalizedText;

@@ -22,7 +22,7 @@ async function readOrEmpty(path) {
   }
 }
 
-test('selected work presents four verified cases with private examples anonymized', async () => {
+test('selected work presents verified projects with private examples anonymized', async () => {
   const projects = (await readJson('src/data/portfolio.json')).projects ?? [];
 
   assert.deepEqual(projects.map((project) => project.id), [
@@ -30,6 +30,9 @@ test('selected work presents four verified cases with private examples anonymize
     'client-operations',
     'valls-solutions',
     'letsstudy',
+    'shopify-storefront',
+    'dual-timezone-clock',
+    'vallstv',
   ]);
   assert.ok(projects.every((project) => project.title?.en && project.title?.es));
   assert.ok(projects.every((project) => project.summary?.en && project.summary?.es));
@@ -76,5 +79,9 @@ test('both generated pages expose a usable contact route and linked project evid
     assert.match(html, /href="https:\/\/www\.linkedin\.com\/in\/oriolvallsn\/"/);
     assert.match(html, /href="https:\/\/vallssolutions\.com"/);
     assert.match(html, /LetsStudy/);
+    assert.match(html, /href="https:\/\/github\.com\/ovallsn\/dual-timezone-clock-android"/);
+    assert.match(html, /href="https:\/\/github\.com\/ovallsn\/shopify-pokemon-card-store"/);
+    assert.match(html, /href="https:\/\/www\.twitch\.tv\/vallstv"/);
+    assert.doesNotMatch(html, /contact-form-help|contact-draft-help/);
   }
 });

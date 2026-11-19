@@ -13,12 +13,15 @@ interface Props {
 }
 
 const { locale, copy, projects } = Astro.props;
-const featured = projects.filter((project) => project.kind !== 'case');
+const featured = projects.filter((project) => project.kind === 'business' || project.kind === 'product');
 const cases = projects.filter((project) => project.kind === 'case');
+const additional = projects.filter((project) => project.kind === 'additional');
 const isEnglish = locale === 'en';
 const vallsPreview = isEnglish ? vallsPreviewEn : vallsPreviewEs;
 const labels = {
   cases: isEnglish ? 'Support and client operations' : 'Soporte y operaciones con clientes',
+  additional: isEnglish ? 'More projects' : 'Más proyectos',
+  channel: isEnglish ? 'Visit Twitch channel' : 'Visitar canal de Twitch',
   business: isEnglish ? 'Founder · Website & client operations' : 'Fundador · Web y operaciones con clientes',
   app: isEnglish ? 'Personal Android project' : 'Proyecto personal para Android',
   businessImage: isEnglish ? 'Homepage of the Valls Solutions website for U.S. LLC formation.' : 'Portada de Valls Solutions, la web bilingüe para constituir LLC en Estados Unidos.',
@@ -81,6 +84,27 @@ const labels = {
           </div>
         </details>
       ))}
+    </div>
+  </div>
+  <div class="work-cases">
+    <h3>{labels.additional}</h3>
+    <div class="work-case-list">
+      {additional.map((project) => {
+        const linkLabel = project.id === 'vallstv' ? labels.channel : copy.repositoryLabel;
+        return (
+          <article class="work-case work-additional" id={project.id} aria-labelledby={`${project.id}-title`}>
+            <h4 id={`${project.id}-title`}>{project.title[locale]}</h4>
+            <div class="work-case-body">
+              <p>{project.summary[locale]}</p>
+              <p>{project.contribution[locale]}</p>
+              <a class="work-link" href={project.destinationUrl} aria-label={`${linkLabel} · ${project.title[locale]}`}>
+                {linkLabel}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        );
+      })}
     </div>
   </div>
 </section>
