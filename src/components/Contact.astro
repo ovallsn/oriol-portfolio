@@ -16,9 +16,8 @@ const formCopy = isEnglish ? {
   email: 'Your email',
   subject: 'Subject',
   message: 'Message',
-  open: 'Open email draft',
-  help: 'Opens your email app with a draft ready to review and send.',
-  signature: 'Reply to',
+  send: 'Send message',
+  help: 'Your message is sent through FormSubmit. I’ll reply to the email address you provide.',
 } : {
   direct: 'Contacto directo',
   social: 'Encuéntrame en',
@@ -26,9 +25,8 @@ const formCopy = isEnglish ? {
   email: 'Tu correo',
   subject: 'Asunto',
   message: 'Mensaje',
-  open: 'Abrir borrador de correo',
-  help: 'Abre tu aplicación de correo con un borrador listo para revisar y enviar.',
-  signature: 'Responder a',
+  send: 'Enviar mensaje',
+  help: 'El mensaje se envía a través de FormSubmit. Te responderé al correo que indiques.',
 };
 ---
 
@@ -53,7 +51,9 @@ const formCopy = isEnglish ? {
       </div>
     </div>
 
-    <form class="reach-form" data-contact-draft data-recipient={links.email} data-signature={formCopy.signature} hidden>
+    <form class="reach-form" action={`https://formsubmit.co/${links.email}`} method="post">
+      <input type="hidden" name="_subject" value="New message from your portfolio" />
+      <input type="hidden" name="_template" value="table" />
       <label>
         {formCopy.name}
         <input name="name" type="text" autocomplete="name" maxlength="100" required />
@@ -70,30 +70,11 @@ const formCopy = isEnglish ? {
         {formCopy.message}
         <textarea name="message" rows="4" maxlength="1500" required></textarea>
       </label>
-      <button class="reach-form-wide" type="submit" aria-describedby="contact-draft-help">
-        {formCopy.open}
+      <button class="reach-form-wide" type="submit" aria-describedby="contact-form-help">
+        {formCopy.send}
         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" /></svg>
       </button>
-      <p class="reach-form-help reach-form-wide" id="contact-draft-help">{formCopy.help}</p>
+      <p class="reach-form-help reach-form-wide" id="contact-form-help">{formCopy.help}</p>
     </form>
   </div>
 </section>
-
-<script>
-  const form = document.querySelector<HTMLFormElement>('[data-contact-draft]');
-  if (form) {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const details = new FormData(form);
-      const name = String(details.get('name')).trim();
-      const email = String(details.get('email')).trim();
-      const subject = encodeURIComponent(String(details.get('subject')).trim());
-      const message = String(details.get('message')).trim().replace(/\r?\n/g, '\r\n');
-      const body = encodeURIComponent(`${message}\r\n\r\n${name}\r\n${form.dataset.signature}: ${email}`);
-      const draft = document.createElement('a');
-      draft.href = `mailto:${form.dataset.recipient}?subject=${subject}&body=${body}`;
-      draft.click();
-    });
-    form.hidden = false;
-  }
-</script>

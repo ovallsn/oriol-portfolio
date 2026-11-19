@@ -31,7 +31,7 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 - Place the brief biography and Oriol’s portrait directly below the introduction. The black portrait card turns from its branded back to its front as the visitor scrolls into the section. The front is the static default for reduced motion and without JavaScript. Present the method for handling an incident in a disclosure beneath the biography.
 - Show the live Valls Solutions homepage in a browser frame and use real LetsStudy screens in the Android preview, including interview preparation. Make each preview a link to the corresponding public project.
 - Present professional experience as two timelines, one for support and development and one for operations and business. Keep dates, employers and roles visible.
-- Use a fine diagonal drafting grid over warm paper in the opening scene. Echo it around the two-column contact panel, with direct contact links next to a form that opens a prefilled email draft.
+- Use a fine diagonal drafting grid over warm paper in the opening scene. Echo it around the two-column contact panel, with direct contact links next to a form that sends messages through FormSubmit.
 
 ## Interaction and accessibility
 

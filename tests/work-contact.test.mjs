@@ -72,6 +72,7 @@ test('both generated pages expose a usable contact route and linked project evid
 
   for (const html of [english, spanish]) {
     assert.match(html, /href="mailto:oriolvallsnunezz@gmail\.com"/);
+    assert.match(html, /<form[^>]+action="https:\/\/formsubmit\.co\/oriolvallsnunezz@gmail\.com"[^>]+method="post"/);
     assert.match(html, /href="https:\/\/www\.linkedin\.com\/in\/oriolvallsn\/"/);
     assert.match(html, /href="https:\/\/vallssolutions\.com"/);
     assert.match(html, /LetsStudy/);

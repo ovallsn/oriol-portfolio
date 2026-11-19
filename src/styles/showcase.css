@@ -954,10 +954,6 @@
   background: var(--nav-paper);
 }
 
-.reach-form[hidden] {
-  display: none;
-}
-
 .reach-form-wide {
   grid-column: 1 / -1;
 }
