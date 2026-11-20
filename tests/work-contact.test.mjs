@@ -74,6 +74,8 @@ test('both generated pages expose a usable contact route and linked project evid
   const spanish = await readOrEmpty('dist/es/index.html');
 
   for (const html of [english, spanish]) {
+    assert.match(html, /href="#support-case"/);
+    assert.match(html, /id="support-case"[\s\S]+class="work-gallery"/);
     assert.match(html, /href="mailto:oriolvallsnunezz@gmail\.com"/);
     assert.match(html, /<form[^>]+action="https:\/\/formsubmit\.co\/oriolvallsnunezz@gmail\.com"[^>]+method="post"/);
     assert.match(html, /href="https:\/\/www\.linkedin\.com\/in\/oriolvallsn\/"/);

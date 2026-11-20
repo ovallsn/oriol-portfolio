@@ -13,7 +13,7 @@ export interface PortfolioCopy {
     headline: string;
     summary: string;
     availability: string;
-    workLink: string;
+    supportCaseLink: string;
   };
   about: {
     title: string;
@@ -75,10 +75,11 @@ export interface ProjectEntry {
   kind: 'case' | 'business' | 'product' | 'additional';
   title: LocalizedText;
   summary: LocalizedText;
-  contribution: LocalizedText;
+  contribution?: LocalizedText;
   tools: string[];
   destinationUrl?: string;
   confidentialityNote?: LocalizedText;
+  investigationSteps?: Array<{ title: LocalizedText; detail: LocalizedText }>;
   proof?: {
     value: string;
   } & LocalizedText;

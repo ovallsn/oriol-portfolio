@@ -3,9 +3,9 @@
     "en": {
       "hero": {
         "headline": "Technical & Application Support",
-        "summary": "I troubleshoot application issues, support users and follow cases through to resolution. I also built and run Valls Solutions, where I manage the website and client operations.",
+        "summary": "I spent three years supporting users and administering systems at Foment Formació. I investigate application issues and follow cases through to resolution.",
         "availability": "Open to international remote roles",
-        "workLink": "View projects"
+        "supportCaseLink": "View support case"
       },
       "about": {
         "title": "About me",
@@ -52,9 +52,9 @@
     "es": {
       "hero": {
         "headline": "Soporte técnico y de aplicaciones",
-        "summary": "Investigo fallos en aplicaciones, ayudo a usuarios y hago seguimiento hasta resolver las incidencias. También fundé Valls Solutions, donde gestiono la web y las operaciones con clientes.",
+        "summary": "Durante tres años di soporte a usuarios y administré sistemas en Foment Formació. Investigo fallos en aplicaciones y hago seguimiento hasta resolver las incidencias.",
         "availability": "Disponible para trabajo remoto internacional",
-        "workLink": "Ver proyectos"
+        "supportCaseLink": "Ver caso de soporte"
       },
       "about": {
         "title": "Sobre mí",
@@ -222,14 +222,33 @@
         "es": "Soporte de aplicaciones para un sistema interno en Laravel"
       },
       "summary": {
-        "en": "Investigated application issues across Laravel/PHP, SQL data, and REST APIs, then translated findings into clear next steps.",
-        "es": "Investigué incidencias en una aplicación Laravel/PHP, datos SQL y API REST, y convertí los hallazgos en siguientes pasos claros."
-      },
-      "contribution": {
-        "en": "Reproduced reported behavior, traced relevant application and data context, documented findings, and kept the case moving through resolution or handoff.",
-        "es": "Reproduje el comportamiento comunicado, revisé el contexto de la aplicación y los datos, documenté los hallazgos y mantuve el caso en curso hasta su resolución o traspaso."
+        "en": "When users reported unexpected behavior in an internal application, I investigated what was happening and documented the next steps.",
+        "es": "Cuando los usuarios avisaban de fallos en una aplicación interna, investigaba qué ocurría y documentaba los siguientes pasos."
       },
       "tools": ["Laravel / PHP", "SQL", "REST APIs", "Troubleshooting"],
+      "investigationSteps": [
+        {
+          "title": { "en": "Reproduce the issue", "es": "Reproducir la incidencia" },
+          "detail": {
+            "en": "Recreated the behavior users reported to understand what the application was doing.",
+            "es": "Reproducía el comportamiento que describían los usuarios para entender qué hacía la aplicación."
+          }
+        },
+        {
+          "title": { "en": "Trace the behavior", "es": "Investigar el comportamiento" },
+          "detail": {
+            "en": "Checked the relevant Laravel/PHP logic, SQL data and REST API behavior.",
+            "es": "Revisaba la lógica de Laravel/PHP, los datos SQL y el comportamiento de las API REST según la incidencia."
+          }
+        },
+        {
+          "title": { "en": "Document the next step", "es": "Documentar el siguiente paso" },
+          "detail": {
+            "en": "Recorded what I found and followed up until the case was resolved or handed over.",
+            "es": "Dejaba por escrito los hallazgos y hacía seguimiento hasta la resolución o el traspaso."
+          }
+        }
+      ],
       "confidentialityNote": {
         "en": "Anonymized to protect employer and client information.",
         "es": "Anonimizado para proteger la información de la empresa y sus clientes."

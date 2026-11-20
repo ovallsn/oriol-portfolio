@@ -14,12 +14,13 @@ interface Props {
 
 const { locale, copy, projects } = Astro.props;
 const featured = projects.filter((project) => project.kind === 'business' || project.kind === 'product');
-const cases = projects.filter((project) => project.kind === 'case');
+const supportCase = projects.find((project) => project.id === 'internal-application');
+const cases = projects.filter((project) => project.kind === 'case' && project !== supportCase);
 const additional = projects.filter((project) => project.kind === 'additional');
 const isEnglish = locale === 'en';
 const vallsPreview = isEnglish ? vallsPreviewEn : vallsPreviewEs;
 const labels = {
-  cases: isEnglish ? 'Support and client operations' : 'Soporte y operaciones con clientes',
+  cases: isEnglish ? 'Client operations' : 'Operaciones con clientes',
   additional: isEnglish ? 'More projects' : 'Más proyectos',
   channel: isEnglish ? 'Visit Twitch channel' : 'Visitar canal de Twitch',
   business: isEnglish ? 'Founder · Website & client operations' : 'Fundador · Web y operaciones con clientes',
@@ -32,6 +33,23 @@ const labels = {
 
 <section class="content-section work-showcase" id="work" aria-labelledby="work-title">
   <h2 id="work-title">{copy.title}</h2>
+  {supportCase?.investigationSteps && (
+    <article class="support-case" id="support-case" aria-labelledby="support-case-title">
+      <div class="support-case-intro">
+        <h3 id="support-case-title">{supportCase.title[locale]}</h3>
+        <p>{supportCase.summary[locale]}</p>
+        <p class="support-case-note">{supportCase.confidentialityNote?.[locale]}</p>
+      </div>
+      <ol class="support-case-steps" role="list">
+        {supportCase.investigationSteps.map((step) => (
+          <li>
+            <h4>{step.title[locale]}</h4>
+            <p>{step.detail[locale]}</p>
+          </li>
+        ))}
+      </ol>
+    </article>
+  )}
   <div class="work-gallery">
     {featured.map((project) => (
       <article class:list={['work-feature', `work-feature--${project.kind}`]} aria-labelledby={`project-${project.id}-title`} data-scroll-reveal>
@@ -58,7 +76,7 @@ const labels = {
           <p class="work-role">{project.kind === 'business' ? labels.business : labels.app}</p>
           <h3 id={`project-${project.id}-title`}>{project.kind === 'business' ? 'Valls Solutions' : 'LetsStudy'}</h3>
           <p>{project.summary[locale]}</p>
-          <p>{project.contribution[locale]}</p>
+          {project.contribution && <p>{project.contribution[locale]}</p>}
           {project.proof && <p class="work-proof"><strong>{project.proof.value}</strong> {project.proof[locale]}</p>}
           <ul class="work-tools" aria-label={isEnglish ? 'Tools and focus areas' : 'Herramientas y áreas de trabajo'}>
             {project.tools.map((tool) => <li>{tool}</li>)}
@@ -76,7 +94,7 @@ const labels = {
           <summary>{project.title[locale]}</summary>
           <div class="work-case-body">
             <p>{project.summary[locale]}</p>
-            <p>{project.contribution[locale]}</p>
+            {project.contribution && <p>{project.contribution[locale]}</p>}
             <ul class="work-tools" aria-label={isEnglish ? 'Tools and focus areas' : 'Herramientas y áreas de trabajo'}>
               {project.tools.map((tool) => <li>{tool}</li>)}
             </ul>
@@ -96,7 +114,7 @@ const labels = {
             <h4 id={`${project.id}-title`}>{project.title[locale]}</h4>
             <div class="work-case-body">
               <p>{project.summary[locale]}</p>
-              <p>{project.contribution[locale]}</p>
+              {project.contribution && <p>{project.contribution[locale]}</p>}
               <a class="work-link" href={project.destinationUrl} aria-label={`${linkLabel} · ${project.title[locale]}`}>
                 {linkLabel}
                 <span aria-hidden="true">↗</span>
