@@ -8,12 +8,17 @@ interface Props {
 }
 
 const { locale, copy, groups } = Astro.props;
+const marks: Record<SkillGroup['id'], string> = {
+  support: '◎',
+  systems: '>_',
+  applications: '</>',
+  operations: '⇄',
+};
 ---
 
 <section class="content-section skills-section" id="skills" aria-labelledby="skills-title">
   <div class="section-heading skills-heading">
     <h2 id="skills-title">{copy.title}</h2>
-    <p>{locale === 'en' ? 'Choose an area to see the tools and work behind it.' : 'Elige un área para ver las herramientas y tareas que incluye.'}</p>
   </div>
 
   <div class="skills-browser">
@@ -26,17 +31,18 @@ const { locale, copy, groups } = Astro.props;
       ))}
     </div>
 
-    <p class="skill-example" aria-live="polite" data-skill-example>{copy.defaultExample}</p>
-
-    <div class="skill-groups">
-      {groups.map((group) => (
-        <section class="skill-group" data-skill-group={group.id} aria-labelledby={`skill-${group.id}`}>
-          <h3 id={`skill-${group.id}`}>{group.label[locale]}</h3>
-          <ul>
-            {group.skills[locale].map((skill) => <li>{skill}</li>)}
-          </ul>
-        </section>
-      ))}
+    <div class="skills-map">
+      <div class="skill-groups">
+        {groups.map((group) => (
+          <section class="skill-group" data-skill-group={group.id} aria-labelledby={`skill-${group.id}`}>
+            <h3 id={`skill-${group.id}`}><span class="skill-mark" aria-hidden="true">{marks[group.id]}</span>{group.label[locale]}</h3>
+            <ul>
+              {group.skills[locale].map((skill) => <li>{skill}</li>)}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <p class="skill-example" aria-live="polite"><span aria-hidden="true">›</span><span data-skill-example>{copy.defaultExample}</span></p>
     </div>
   </div>
 </section>

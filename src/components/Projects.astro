@@ -4,6 +4,8 @@ import vallsPreviewEn from '../assets/work/valls-home-en.webp';
 import vallsPreviewEs from '../assets/work/valls-home-es.webp';
 import letsStudyHome from '../assets/work/letsstudy-home.webp';
 import letsStudyInterview from '../assets/work/letsstudy-interview.webp';
+import clockMadrid from '../assets/work/clock-madrid.webp';
+import clockSecondZone from '../assets/work/clock-second-zone.webp';
 import type { Locale, PortfolioCopy, ProjectEntry } from '../data/portfolio';
 
 interface Props {
@@ -23,6 +25,8 @@ const labels = {
   cases: isEnglish ? 'Client operations' : 'Operaciones con clientes',
   additional: isEnglish ? 'More projects' : 'Más proyectos',
   channel: isEnglish ? 'Visit Twitch channel' : 'Visitar canal de Twitch',
+  clockMadrid: isEnglish ? 'Full-screen clock showing Madrid time.' : 'Reloj a pantalla completa con la hora de Madrid.',
+  clockSecondZone: isEnglish ? 'The clock switched to Japan time.' : 'El reloj tras cambiar a la hora de Japón.',
   business: isEnglish ? 'Founder · Website & client operations' : 'Fundador · Web y operaciones con clientes',
   app: isEnglish ? 'Personal Android project' : 'Proyecto personal para Android',
   businessImage: isEnglish ? 'Homepage of the Valls Solutions website for U.S. LLC formation.' : 'Portada de Valls Solutions, la web bilingüe para constituir LLC en Estados Unidos.',
@@ -104,15 +108,31 @@ const labels = {
       ))}
     </div>
   </div>
-  <div class="work-cases">
-    <h3>{labels.additional}</h3>
-    <div class="work-case-list">
+  <section class="project-shelf" aria-labelledby="more-projects-title">
+    <h3 id="more-projects-title">{labels.additional}</h3>
+    <div class="project-shelf-grid">
       {additional.map((project) => {
         const linkLabel = project.id === 'vallstv' ? labels.channel : copy.repositoryLabel;
         return (
-          <article class="work-case work-additional" id={project.id} aria-labelledby={`${project.id}-title`}>
-            <h4 id={`${project.id}-title`}>{project.title[locale]}</h4>
-            <div class="work-case-body">
+          <article class="project-shelf-card" id={project.id} aria-labelledby={`${project.id}-title`} data-scroll-reveal>
+            {project.id === 'dual-timezone-clock' && (
+              <div class="project-shelf-visual project-shelf-clock">
+                <Image src={clockMadrid} alt={labels.clockMadrid} />
+                <Image src={clockSecondZone} alt={labels.clockSecondZone} />
+              </div>
+            )}
+            {project.id === 'shopify-storefront' && (
+              <div class="project-shelf-visual project-shelf-commerce" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            )}
+            {project.id === 'vallstv' && (
+              <div class="project-shelf-visual project-shelf-channel" aria-hidden="true">
+                <span>VallsTV</span>
+              </div>
+            )}
+            <div class="project-shelf-copy">
+              <h4 id={`${project.id}-title`}>{project.title[locale]}</h4>
               <p>{project.summary[locale]}</p>
               {project.contribution && <p>{project.contribution[locale]}</p>}
               <a class="work-link" href={project.destinationUrl} aria-label={`${linkLabel} · ${project.title[locale]}`}>
@@ -124,5 +144,5 @@ const labels = {
         );
       })}
     </div>
-  </div>
+  </section>
 </section>

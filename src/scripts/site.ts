@@ -104,6 +104,16 @@ if (typeof IntersectionObserver !== 'undefined') {
   document.querySelectorAll('[data-scroll-reveal]').forEach((target) => {
     if (target.getBoundingClientRect().top >= window.innerHeight) reveal.observe(target);
   });
+
+  const contactTrace = document.querySelector('[data-contact-trace]');
+  if (contactTrace) {
+    const contactEntrance = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      contactEntrance.disconnect();
+      if (!reducedMotion.matches) contactTrace.classList.add('is-tracing');
+    }, { threshold: 0.25 });
+    contactEntrance.observe(contactTrace);
+  }
 }
 
 if (themeToggle) {

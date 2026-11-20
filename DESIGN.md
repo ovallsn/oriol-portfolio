@@ -28,10 +28,10 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 - Constrain the main content to roughly 1160px with generous side gutters.
 - Lead with Oriol’s name and role, a CV selector and an original animated trefoil mesh. Draw the mesh in Canvas with no external runtime. Use a still frame without JavaScript and start with motion paused when the visitor prefers reduced motion.
 - Let the centered navigation float over the opening scene. Move its selection indicator as the visible section changes and collapse it behind a native disclosure control on narrow screens.
-- Place the brief biography and Oriol’s portrait directly below the introduction. The black portrait card turns from its branded back to its front as the visitor scrolls into the section. The front is the static default for reduced motion and without JavaScript. Present the method for handling an incident in a disclosure beneath the biography.
+- Place the brief biography and Oriol’s portrait directly below the introduction. The portrait turns from back to front on entry and returns to its back as it leaves the viewport. The front is the static default for reduced motion and without JavaScript.
 - Show the live Valls Solutions homepage in a browser frame and use real LetsStudy screens in the Android preview, including interview preparation. Make each preview a link to the corresponding public project.
 - Present professional experience as two timelines, one for support and development and one for operations and business. Keep dates, employers and roles visible.
-- Use a fine diagonal drafting grid over warm paper in the opening scene. Echo it around the two-column contact panel, with direct contact links next to a form that sends messages through FormSubmit.
+- Use a fine drafting grid in the opening and skills sections. Use curved lines and a single animated trace on entry behind the two-column contact panel. Keep the contact form and its labels above this background.
 
 ## Interaction and accessibility
 
@@ -49,3 +49,4 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 - No source code, branding, copy, artwork, or assets were reused from those sites; a license covering them was not established.
 - The Valls Solutions images are captures of its English and Spanish homepages. They include a still from Vlada Karpovich’s [Pexels video 7552423](https://www.pexels.com/video/businesspeople-doing-paperwork-7552423/), reused under the [Pexels license](https://www.pexels.com/license/).
 - The LetsStudy images come from its [published screenshots](https://github.com/ovallsn/letsstudy/tree/main/docs/screenshots). Oriol provided the original portrait. The portfolio displays a background-edited version of that photo.
+- The Android clock card uses screenshots from Oriol’s TimeValls project. The Shopify and VallsTV panels use original CSS illustrations.

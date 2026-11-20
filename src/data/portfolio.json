@@ -22,7 +22,7 @@
         ]
       },
       "skills": {
-        "title": "Tools and areas I work with.",
+        "title": "Technical skills",
         "allLabel": "All",
         "defaultExample": "I combine investigation, clear communication, and consistent follow-up across the support process.",
         "filterLabel": "Filter capabilities"
@@ -71,7 +71,7 @@
         ]
       },
       "skills": {
-        "title": "Herramientas y áreas en las que trabajo.",
+        "title": "Habilidades técnicas",
         "allLabel": "Todas",
         "defaultExample": "Combino investigación, comunicación clara y seguimiento constante durante el proceso de soporte.",
         "filterLabel": "Filtrar capacidades"

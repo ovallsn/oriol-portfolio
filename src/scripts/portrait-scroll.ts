@@ -7,10 +7,11 @@ if (scene) {
 
   const draw = () => {
     pendingFrame = 0;
-    const { top } = scene.getBoundingClientRect();
+    const { top, bottom } = scene.getBoundingClientRect();
     const viewport = window.innerHeight;
-    const progress = Math.max(0, Math.min(1, (viewport * 0.93 - top) / (viewport * 0.65)));
-    const angle = motion.matches ? 0 : Math.round(165 * (1 - progress ** 1.15));
+    const entrance = Math.max(0, Math.min(1, (top - viewport * 0.28) / (viewport * 0.65)));
+    const exit = Math.max(0, Math.min(1, (viewport * 0.48 - bottom) / (viewport * 0.42)));
+    const angle = motion.matches ? 0 : Math.round(165 * (entrance ** 1.15 - exit ** 1.15));
 
     if (angle !== lastAngle) {
       scene.style.setProperty('--portrait-turn', `${angle}deg`);
