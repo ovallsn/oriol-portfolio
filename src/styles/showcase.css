@@ -1051,6 +1051,22 @@
   font: 750 1.15rem ui-monospace, monospace;
 }
 
+.skill-case-link:not([hidden]) {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 0.9rem;
+  font-size: 0.87rem;
+  font-weight: 700;
+}
+
+.portfolio-intro a {
+  color: var(--ink);
+  text-decoration-color: var(--accent-strong);
+  text-underline-offset: 0.18em;
+}
+
 .career-tracks {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1384,9 +1400,9 @@
 
   .portfolio-hero {
     min-height: auto;
-    padding-block: 2.6rem 1.65rem;
+    padding-block: 2.2rem 1.4rem;
     grid-template-columns: 1fr;
-    gap: 1.3rem;
+    gap: 1rem;
   }
 
   .portfolio-hero-copy h1 {
@@ -1417,7 +1433,7 @@
   }
 
   .hero-scene {
-    width: min(72%, 288px);
+    width: min(58%, 238px);
   }
 
   .profile-grid,

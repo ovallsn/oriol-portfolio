@@ -132,6 +132,7 @@ if (themeToggle) {
 
 const skillFilters = document.querySelector<HTMLElement>('[data-skill-filters]');
 const skillExample = document.querySelector<HTMLElement>('[data-skill-example]');
+const skillCase = document.querySelector<HTMLElement>('[data-skill-case]');
 const skillGroups = Array.from(document.querySelectorAll<HTMLElement>('[data-skill-group]'));
 
 if (skillFilters && skillExample) {
@@ -150,6 +151,7 @@ if (skillFilters && skillExample) {
       });
 
       skillExample.textContent = button.dataset.example ?? '';
+      if (skillCase) skillCase.hidden = selected !== 'applications';
     });
   });
 }

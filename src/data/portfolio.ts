@@ -11,6 +11,7 @@ export interface LocalizedText {
 export interface PortfolioCopy {
   hero: {
     headline: string;
+    experienceLead: string;
     summary: string;
     availability: string;
     supportCaseLink: string;

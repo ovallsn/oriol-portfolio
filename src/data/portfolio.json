@@ -3,7 +3,8 @@
     "en": {
       "hero": {
         "headline": "Technical & Application Support",
-        "summary": "I spent three years supporting users and administering systems at Foment Formació. I investigate application issues and follow cases through to resolution.",
+        "experienceLead": "Three years in IT support and systems administration at",
+        "summary": "I investigate application issues and follow cases through to resolution.",
         "availability": "Open to international remote roles",
         "supportCaseLink": "View support case"
       },
@@ -52,7 +53,8 @@
     "es": {
       "hero": {
         "headline": "Soporte técnico y de aplicaciones",
-        "summary": "Durante tres años di soporte a usuarios y administré sistemas en Foment Formació. Investigo fallos en aplicaciones y hago seguimiento hasta resolver las incidencias.",
+        "experienceLead": "Tres años en soporte TIC y administración de sistemas en",
+        "summary": "Investigo fallos en aplicaciones y hago seguimiento hasta resolver las incidencias.",
         "availability": "Disponible para trabajo remoto internacional",
         "supportCaseLink": "Ver caso de soporte"
       },
@@ -188,8 +190,8 @@
       "title": { "en": "Senior ICT Technician / Systems Administrator", "es": "Técnico sénior de TIC / Administrador de sistemas" },
       "dates": { "en": "Feb 2021–Feb 2024", "es": "Feb 2021–feb 2024" },
       "description": {
-        "en": "Provided user-facing ICT support and systems administration for day-to-day workplace needs.",
-        "es": "Ofrecí soporte TIC a usuarios y administré sistemas para las necesidades diarias del entorno de trabajo."
+        "en": "Supported staff and administered IT systems. Contributed to an internal Laravel/PHP portal for course enrolment, CSV imports and automated emails, and used SQL to investigate issues with application data.",
+        "es": "Di soporte al personal y administré sistemas informáticos. Colaboré en un portal interno en Laravel/PHP para gestionar matrículas, importar CSV y automatizar correos, y usé SQL para investigar incidencias en los datos de la aplicación."
       }
     },
     {
@@ -222,8 +224,8 @@
         "es": "Soporte de aplicaciones para un sistema interno en Laravel"
       },
       "summary": {
-        "en": "When users reported unexpected behavior in an internal application, I investigated what was happening and documented the next steps.",
-        "es": "Cuando los usuarios avisaban de fallos en una aplicación interna, investigaba qué ocurría y documentaba los siguientes pasos."
+        "en": "I supported an internal staff portal for course enrolment, bulk CSV imports and diploma generation. When users reported unexpected behaviour, I investigated the application and its data and documented the next step.",
+        "es": "Di soporte a un portal interno de personal para gestionar matrículas, importar CSV por lotes y generar diplomas. Cuando los usuarios notificaban fallos, revisaba la aplicación y sus datos y documentaba el siguiente paso."
       },
       "tools": ["Laravel / PHP", "SQL", "REST APIs", "Troubleshooting"],
       "investigationSteps": [

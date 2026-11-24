@@ -36,7 +36,7 @@ const tracks = [
         <h3 id={`career-${track.id}`}>{track.title}</h3>
         <ol class="career-timeline">
           {track.entries.map((entry) => (
-            <li class="career-item" data-scroll-reveal>
+            <li class="career-item" id={entry.id} data-scroll-reveal>
               <p class="career-date">{entry.dates[locale]}</p>
               <h4>{entry.title[locale]}</h4>
               <p class="career-company">{entry.company}</p>

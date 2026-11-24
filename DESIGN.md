@@ -20,7 +20,7 @@ An editorial, warm technical portfolio for a job candidate. It should feel credi
 ## Typography
 
 - Self-host DM Sans under its SIL Open Font License 1.1 in weights 400–800. Use the same family for headings, prose and controls.
-- Use a plain text signature in system monospace in the header. Keep the monogram on the browser tab and the reverse of the portrait card.
+- Use a plain text signature in system monospace in the header. Use the simplified trefoil in the browser tab and on the reverse of the portrait card.
 - Keep body copy around 65–75 characters per line on wide screens and display type below 6rem.
 
 ## Composition
